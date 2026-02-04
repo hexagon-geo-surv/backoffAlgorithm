@@ -111,18 +111,18 @@ $(document).ready(function(){initNavTree('backoff__algorithm_8c.html',''); initR
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae9dc843e520435569f40e8832791ecbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__backoff__algorithm__enum__types.html#ga7b7f4051eb253599ffedd69285f5a89b">BackoffAlgorithmStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backoff__algorithm_8c.html#ae9dc843e520435569f40e8832791ecbe">BackoffAlgorithm_GetNextBackoff</a> (<a class="el" href="struct_backoff_algorithm_context__t.html">BackoffAlgorithmContext_t</a> *pRetryContext, uint32_t randomValue, uint16_t *pNextBackOff)</td></tr>
-<tr class="memdesc:ae9dc843e520435569f40e8832791ecbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple exponential backoff and jitter function that provides the delay value for the next retry attempt. After a failure of an operation that needs to be retried, the application should use this function to obtain the backoff delay value for the next retry, and then wait for the backoff time period before retrying the operation.  <br /></td></tr>
-<tr class="separator:ae9dc843e520435569f40e8832791ecbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac37ecab230cf5da8f70547ec63776a48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backoff__algorithm_8c.html#ac37ecab230cf5da8f70547ec63776a48">BackoffAlgorithm_InitializeParams</a> (<a class="el" href="struct_backoff_algorithm_context__t.html">BackoffAlgorithmContext_t</a> *pContext, uint16_t backOffBase, uint16_t maxBackOff, uint32_t maxAttempts)</td></tr>
-<tr class="memdesc:ac37ecab230cf5da8f70547ec63776a48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the context for using backoff algorithm. The parameters are required for calculating the next retry backoff delay. This function must be called by the application before the first new retry attempt.  <br /></td></tr>
-<tr class="separator:ac37ecab230cf5da8f70547ec63776a48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad418427ae9e59374df8235d5e369bd1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__backoff__algorithm__enum__types.html#ga7b7f4051eb253599ffedd69285f5a89b">BackoffAlgorithmStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backoff__algorithm_8c.html#ad418427ae9e59374df8235d5e369bd1c">BackoffAlgorithm_GetNextBackoff</a> (<a class="el" href="struct_backoff_algorithm_context__t.html">BackoffAlgorithmContext_t</a> *pRetryContext, uint32_t randomValue, uint32_t *pNextBackOff)</td></tr>
+<tr class="memdesc:ad418427ae9e59374df8235d5e369bd1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple exponential backoff and jitter function that provides the delay value for the next retry attempt. After a failure of an operation that needs to be retried, the application should use this function to obtain the backoff delay value for the next retry, and then wait for the backoff time period before retrying the operation.  <br /></td></tr>
+<tr class="separator:ad418427ae9e59374df8235d5e369bd1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf229f6284bae0856b901ec19f10d6bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backoff__algorithm_8c.html#adf229f6284bae0856b901ec19f10d6bd">BackoffAlgorithm_InitializeParams</a> (<a class="el" href="struct_backoff_algorithm_context__t.html">BackoffAlgorithmContext_t</a> *pContext, uint32_t backOffBase, uint32_t maxBackOff, uint32_t maxAttempts)</td></tr>
+<tr class="memdesc:adf229f6284bae0856b901ec19f10d6bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the context for using backoff algorithm. The parameters are required for calculating the next retry backoff delay. This function must be called by the application before the first new retry attempt.  <br /></td></tr>
+<tr class="separator:adf229f6284bae0856b901ec19f10d6bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of the backoff algorithm API for a "Full Jitter" exponential backoff with jitter strategy. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ae9dc843e520435569f40e8832791ecbe" name="ae9dc843e520435569f40e8832791ecbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9dc843e520435569f40e8832791ecbe">&#9670;&#160;</a></span>BackoffAlgorithm_GetNextBackoff()</h2>
+<a id="ad418427ae9e59374df8235d5e369bd1c" name="ad418427ae9e59374df8235d5e369bd1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad418427ae9e59374df8235d5e369bd1c">&#9670;&#160;</a></span>BackoffAlgorithm_GetNextBackoff()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,7 +142,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramtype">uint32_t *&#160;</td>
           <td class="paramname"><em>pNextBackOff</em>&#160;</td>
         </tr>
         <tr>
@@ -162,13 +162,13 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>For generating a random number, it is recommended to use a Random Number Generator that is seeded with a device-specific entropy source so that possibility of collisions between multiple devices retrying the network operations can be mitigated.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>For generating a random number, it is recommended to use a random number generator that is seeded with a device-specific entropy source so that possibility of collisions between multiple devices retrying the network operations can be mitigated.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="group__backoff__algorithm__enum__types.html#gga7b7f4051eb253599ffedd69285f5a89baecf422ba6b1201d8ffbfd61e5712d695" title="The function successfully calculated the next back-off value.">BackoffAlgorithmSuccess</a> after a successful sleep; <a class="el" href="group__backoff__algorithm__enum__types.html#gga7b7f4051eb253599ffedd69285f5a89ba4dd72a4822e0f93b5b98309453b774df" title="The function exhausted all retry attempts.">BackoffAlgorithmRetriesExhausted</a> when all attempts are exhausted. </dd></dl>
 
 </div>
 </div>
-<a id="ac37ecab230cf5da8f70547ec63776a48" name="ac37ecab230cf5da8f70547ec63776a48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac37ecab230cf5da8f70547ec63776a48">&#9670;&#160;</a></span>BackoffAlgorithm_InitializeParams()</h2>
+<a id="adf229f6284bae0856b901ec19f10d6bd" name="adf229f6284bae0856b901ec19f10d6bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf229f6284bae0856b901ec19f10d6bd">&#9670;&#160;</a></span>BackoffAlgorithm_InitializeParams()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,13 +182,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>backOffBase</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>maxBackOff</em>, </td>
         </tr>
         <tr>
@@ -210,7 +210,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">pContext</td><td>The context to initialize with parameters required for the next backoff delay calculation function. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">maxBackOff</td><td>The maximum backoff delay (in milliseconds) between consecutive retry attempts. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">backOffBase</td><td>The base value (in milliseconds) of backoff delay to use in the exponential backoff and jitter model. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">backOffBase</td><td>The base value (in milliseconds) of backoff delay to use in the exponential backoff and jitter model. Must be non-zero. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">maxAttempts</td><td>The maximum number of retry attempts. Set the value to <a class="el" href="group__backoff__algorithm__constants.html#ga89e511b4edee8a92050802a329753842" title="Constant to represent unlimited number of retry attempts.">BACKOFF_ALGORITHM_RETRY_FOREVER</a> to retry for ever. </td></tr>
   </table>
   </dd>

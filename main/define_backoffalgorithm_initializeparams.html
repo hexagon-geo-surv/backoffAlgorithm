@@ -100,30 +100,30 @@ $(document).ready(function(){initNavTree('define_backoffalgorithm_initializepara
   <div class="headertitle"><div class="title">BackoffAlgorithm_InitializeParams </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="backoff__algorithm_8h.html#ac37ecab230cf5da8f70547ec63776a48">BackoffAlgorithm_InitializeParams</a>( <a class="code hl_struct" href="struct_backoff_algorithm_context__t.html">BackoffAlgorithmContext_t</a> * pContext,</div>
-<div class="line">                                        uint16_t backOffBase,</div>
-<div class="line">                                        uint16_t maxBackOff,</div>
+<div class="textblock"><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="backoff__algorithm_8h.html#adf229f6284bae0856b901ec19f10d6bd">BackoffAlgorithm_InitializeParams</a>( <a class="code hl_struct" href="struct_backoff_algorithm_context__t.html">BackoffAlgorithmContext_t</a> * pContext,</div>
+<div class="line">                                        uint32_t backOffBase,</div>
+<div class="line">                                        uint32_t maxBackOff,</div>
 <div class="line">                                        uint32_t maxAttempts );</div>
-<div class="ttc" id="abackoff__algorithm_8h_html_ac37ecab230cf5da8f70547ec63776a48"><div class="ttname"><a href="backoff__algorithm_8h.html#ac37ecab230cf5da8f70547ec63776a48">BackoffAlgorithm_InitializeParams</a></div><div class="ttdeci">void BackoffAlgorithm_InitializeParams(BackoffAlgorithmContext_t *pContext, uint16_t backOffBase, uint16_t maxBackOff, uint32_t maxAttempts)</div><div class="ttdoc">Initializes the context for using backoff algorithm. The parameters are required for calculating the ...</div><div class="ttdef"><b>Definition:</b> backoff_algorithm.c:86</div></div>
+<div class="ttc" id="abackoff__algorithm_8h_html_adf229f6284bae0856b901ec19f10d6bd"><div class="ttname"><a href="backoff__algorithm_8h.html#adf229f6284bae0856b901ec19f10d6bd">BackoffAlgorithm_InitializeParams</a></div><div class="ttdeci">void BackoffAlgorithm_InitializeParams(BackoffAlgorithmContext_t *pContext, uint32_t backOffBase, uint32_t maxBackOff, uint32_t maxAttempts)</div><div class="ttdoc">Initializes the context for using backoff algorithm. The parameters are required for calculating the ...</div><div class="ttdef"><b>Definition:</b> backoff_algorithm.c:86</div></div>
 <div class="ttc" id="astruct_backoff_algorithm_context__t_html"><div class="ttname"><a href="struct_backoff_algorithm_context__t.html">BackoffAlgorithmContext_t</a></div><div class="ttdoc">Represents parameters required for calculating the back-off delay for the next retry attempt.</div><div class="ttdef"><b>Definition:</b> backoff_algorithm.h:79</div></div>
 </div><!-- fragment --><p>Initializes the context for using backoff algorithm. The parameters are required for calculating the next retry backoff delay. This function must be called by the application before the first new retry attempt.  </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">pContext</td><td>The context to initialize with parameters required for the next backoff delay calculation function. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">maxBackOff</td><td>The maximum backoff delay (in milliseconds) between consecutive retry attempts. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">backOffBase</td><td>The base value (in milliseconds) of backoff delay to use in the exponential backoff and jitter model. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">backOffBase</td><td>The base value (in milliseconds) of backoff delay to use in the exponential backoff and jitter model. Must be non-zero. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">maxAttempts</td><td>The maximum number of retry attempts. Set the value to <a class="el" href="group__backoff__algorithm__constants.html#ga89e511b4edee8a92050802a329753842" title="Constant to represent unlimited number of retry attempts.">BACKOFF_ALGORITHM_RETRY_FOREVER</a> to retry for ever.  </td></tr>
   </table>
   </dd>
 </dl>
-<p>From the <a class="el" href="backoff_algorithm_example.html">Code Example for backoffAlgorithm API</a>, following is the part relevant to the <a class="el" href="backoff__algorithm_8h.html#ac37ecab230cf5da8f70547ec63776a48">BackoffAlgorithm_InitializeParams</a> API. </p><div class="fragment"><div class="line">    <span class="comment">/* Variables used in this example. */</span></div>
+<p>From the <a class="el" href="backoff_algorithm_example.html">Code Example for backoffAlgorithm API</a>, following is the part relevant to the <a class="el" href="backoff__algorithm_8h.html#adf229f6284bae0856b901ec19f10d6bd">BackoffAlgorithm_InitializeParams</a> API. </p><div class="fragment"><div class="line">    <span class="comment">/* Variables used in this example. */</span></div>
 <div class="line">    <a class="code hl_enumeration" href="group__backoff__algorithm__enum__types.html#ga7b7f4051eb253599ffedd69285f5a89b">BackoffAlgorithmStatus_t</a> retryStatus = <a class="code hl_enumvalue" href="group__backoff__algorithm__enum__types.html#gga7b7f4051eb253599ffedd69285f5a89baecf422ba6b1201d8ffbfd61e5712d695">BackoffAlgorithmSuccess</a>;</div>
 <div class="line">    <a class="code hl_struct" href="struct_backoff_algorithm_context__t.html">BackoffAlgorithmContext_t</a> retryParams;</div>
 <div class="line">    <span class="keywordtype">char</span> serverAddress[] = <span class="stringliteral">&quot;amazon.com&quot;</span>;</div>
-<div class="line">    uint16_t nextRetryBackoff = 0;</div>
+<div class="line">    uint32_t nextRetryBackoff = 0;</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">/* Initialize reconnect attempts and interval. */</span></div>
-<div class="line">    <a class="code hl_function" href="backoff__algorithm_8h.html#ac37ecab230cf5da8f70547ec63776a48">BackoffAlgorithm_InitializeParams</a>( &amp;retryParams,</div>
+<div class="line">    <a class="code hl_function" href="backoff__algorithm_8h.html#adf229f6284bae0856b901ec19f10d6bd">BackoffAlgorithm_InitializeParams</a>( &amp;retryParams,</div>
 <div class="line">                                       RETRY_BACKOFF_BASE_MS,</div>
 <div class="line">                                       RETRY_MAX_BACKOFF_DELAY_MS,</div>
 <div class="line">                                       RETRY_MAX_ATTEMPTS );</div>

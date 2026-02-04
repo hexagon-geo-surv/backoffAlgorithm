@@ -109,9 +109,9 @@ $(document).ready(function(){initNavTree('define_backoffalgorithm_getnextbackoff
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>For generating a random number, it is recommended to use a Random Number Generator that is seeded with a device-specific entropy source so that possibility of collisions between multiple devices retrying the network operations can be mitigated.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>For generating a random number, it is recommended to use a random number generator that is seeded with a device-specific entropy source so that possibility of collisions between multiple devices retrying the network operations can be mitigated.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="group__backoff__algorithm__enum__types.html#gga7b7f4051eb253599ffedd69285f5a89baecf422ba6b1201d8ffbfd61e5712d695" title="The function successfully calculated the next back-off value.">BackoffAlgorithmSuccess</a> after a successful sleep; <a class="el" href="group__backoff__algorithm__enum__types.html#gga7b7f4051eb253599ffedd69285f5a89ba4dd72a4822e0f93b5b98309453b774df" title="The function exhausted all retry attempts.">BackoffAlgorithmRetriesExhausted</a> when all attempts are exhausted.  </dd></dl>
-<p>From the <a class="el" href="backoff_algorithm_example.html">Code Example for backoffAlgorithm API</a>, following is the part relevant to the <a class="el" href="backoff__algorithm_8h.html#ae9dc843e520435569f40e8832791ecbe">BackoffAlgorithm_GetNextBackoff</a> API. </p><div class="fragment"><div class="line"> </div>
+<p>From the <a class="el" href="backoff_algorithm_example.html">Code Example for backoffAlgorithm API</a>, following is the part relevant to the <a class="el" href="backoff__algorithm_8h.html#ad418427ae9e59374df8235d5e369bd1c">BackoffAlgorithm_GetNextBackoff</a> API. </p><div class="fragment"><div class="line"> </div>
 <div class="line">    <span class="comment">/* Seed the pseudo random number generator used in this example (with call to</span></div>
 <div class="line"><span class="comment">     * rand() function provided by ISO C standard library) for use in backoff period</span></div>
 <div class="line"><span class="comment">     * calculation when retrying failed DNS resolution. */</span></div>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('define_backoffalgorithm_getnextbackoff
 <div class="line"><span class="comment">             *</span></div>
 <div class="line"><span class="comment">             * For the simplicity of this code example, the pseudo random number generator, rand()</span></div>
 <div class="line"><span class="comment">             * function is used. */</span></div>
-<div class="line">            retryStatus = <a class="code hl_function" href="backoff__algorithm_8h.html#ae9dc843e520435569f40e8832791ecbe">BackoffAlgorithm_GetNextBackoff</a>( &amp;retryParams, rand(), &amp;nextRetryBackoff );</div>
+<div class="line">            retryStatus = <a class="code hl_function" href="backoff__algorithm_8h.html#ad418427ae9e59374df8235d5e369bd1c">BackoffAlgorithm_GetNextBackoff</a>( &amp;retryParams, rand(), &amp;nextRetryBackoff );</div>
 <div class="line"> </div>
 <div class="line">            <span class="comment">/* Wait for the calculated backoff period before the next retry attempt of querying DNS.</span></div>
 <div class="line"><span class="comment">             * As usleep() takes nanoseconds as the parameter, we multiply the backoff period by 1000. */</span></div>
@@ -144,7 +144,7 @@ $(document).ready(function(){initNavTree('define_backoffalgorithm_getnextbackoff
 <div class="line">        }</div>
 <div class="line">    } <span class="keywordflow">while</span>( ( dnsStatus != 0 ) &amp;&amp; ( retryStatus != <a class="code hl_enumvalue" href="group__backoff__algorithm__enum__types.html#gga7b7f4051eb253599ffedd69285f5a89ba4dd72a4822e0f93b5b98309453b774df">BackoffAlgorithmRetriesExhausted</a> ) );</div>
 <div class="line"> </div>
-<div class="ttc" id="abackoff__algorithm_8h_html_ae9dc843e520435569f40e8832791ecbe"><div class="ttname"><a href="backoff__algorithm_8h.html#ae9dc843e520435569f40e8832791ecbe">BackoffAlgorithm_GetNextBackoff</a></div><div class="ttdeci">BackoffAlgorithmStatus_t BackoffAlgorithm_GetNextBackoff(BackoffAlgorithmContext_t *pRetryContext, uint32_t randomValue, uint16_t *pNextBackOff)</div><div class="ttdoc">Simple exponential backoff and jitter function that provides the delay value for the next retry attem...</div><div class="ttdef"><b>Definition:</b> backoff_algorithm.c:40</div></div>
+<div class="ttc" id="abackoff__algorithm_8h_html_ad418427ae9e59374df8235d5e369bd1c"><div class="ttname"><a href="backoff__algorithm_8h.html#ad418427ae9e59374df8235d5e369bd1c">BackoffAlgorithm_GetNextBackoff</a></div><div class="ttdeci">BackoffAlgorithmStatus_t BackoffAlgorithm_GetNextBackoff(BackoffAlgorithmContext_t *pRetryContext, uint32_t randomValue, uint32_t *pNextBackOff)</div><div class="ttdoc">Simple exponential backoff and jitter function that provides the delay value for the next retry attem...</div><div class="ttdef"><b>Definition:</b> backoff_algorithm.c:40</div></div>
 <div class="ttc" id="agroup__backoff__algorithm__enum__types_html_gga7b7f4051eb253599ffedd69285f5a89ba4dd72a4822e0f93b5b98309453b774df"><div class="ttname"><a href="group__backoff__algorithm__enum__types.html#gga7b7f4051eb253599ffedd69285f5a89ba4dd72a4822e0f93b5b98309453b774df">BackoffAlgorithmRetriesExhausted</a></div><div class="ttdeci">@ BackoffAlgorithmRetriesExhausted</div><div class="ttdoc">The function exhausted all retry attempts.</div><div class="ttdef"><b>Definition:</b> backoff_algorithm.h:70</div></div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
